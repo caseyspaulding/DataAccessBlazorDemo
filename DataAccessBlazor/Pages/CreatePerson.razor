@@ -1,9 +1,35 @@
 ﻿@page "/createperson"
 
-
 <h3>Create Person</h3>
+<div class="row">
+    <div class="col-md-4">
+    <EditForm Model ="@person" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group">
+        <label> First Name </label>
+        <InputText class="form-control" @bind-Value="person.FirstName" />
+    </div>
+    <div class="form-group">
+        <label> Last Name </label>
+        <InputText class="form-control" @bind-Value="person.LastName" />
+    </div>
+    <div class="form-group">
+        <label> Date of Birth </label>
+        <InputDate class="form-control" @bind-Value="person.DateOfBirth" />
+    </div>
+    <button class="btn btn-primary" type="submit"> Create Person</button>
+
+</EditForm>
+    </div>
+</div>
 
 @code {
+    private IPersonModel person = new DisplayPersonModel();
 
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine("OnValidSubmit");
+    }
 
 }
