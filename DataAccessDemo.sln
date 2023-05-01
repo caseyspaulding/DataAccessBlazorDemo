@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessBlazor", "DataAccessBlazor\DataAccessBlazor.csproj", "{0C6A0DA2-E161-483D-9D1B-FCC5B04C3D9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessBlazor", "DataAccessBlazor\DataAccessBlazor.csproj", "{0C6A0DA2-E161-483D-9D1B-FCC5B04C3D9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportLibrary", "SupportLibrary\SupportLibrary.csproj", "{5C9778A9-15C0-4ECD-90B0-CE749C2C69D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportLibrary", "SupportLibrary\SupportLibrary.csproj", "{5C9778A9-15C0-4ECD-90B0-CE749C2C69D7}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SampleDB", "SampleDB\SampleDB.sqlproj", "{EC9BDE92-AF46-4021-AC8C-0F638EDC1149}"
 EndProject
