@@ -39,7 +39,9 @@ namespace SupportLibrary.Data
 
         public async Task DeletePerson(int id)
         {
-            await _dataAccess.SaveData("dbo.spPeople_Delete", new { id }, "SQLDB");
+            await _dataAccess.SaveData("dbo.spPeople_Delete", new { Id = id }, "SQLDB");
         }
+
+
     }
 }
