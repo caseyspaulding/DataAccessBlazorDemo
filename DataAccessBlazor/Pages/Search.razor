@@ -1,0 +1,24 @@
+﻿<h3>Search Page</h3>
+
+<EditForm Model="@search" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+<div class="form-group">
+        <label>First Name</label>
+        <InputText @bind-Value="@search.SearchTerm" class="form-control" /> 
+</div>
+<button type="submit" class="btn btn-outline-primary"> Go </button>
+
+</EditForm>
+
+@code {
+    private SearchModel search = new SearchModel();
+
+    private async Task HandleValidSubmit()
+    {
+        await personData.SearchPerson(search);
+    }
+
+
+}
