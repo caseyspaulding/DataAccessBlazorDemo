@@ -1,4 +1,5 @@
 ﻿@page "/createperson"
+@inject IPersonDataService personData 
 
 <h3>Create Person</h3>
 <div class="row">
@@ -27,9 +28,10 @@
 @code {
     private IPersonModel person = new DisplayPersonModel();
 
-    private void HandleValidSubmit()
+    private async Task HandleValidSubmit()
     {
-        Console.WriteLine("OnValidSubmit");
+        await personData.CreatePerson(person);
+        person = new DisplayPersonModel();
     }
 
 }
