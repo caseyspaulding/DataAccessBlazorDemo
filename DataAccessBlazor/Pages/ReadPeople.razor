@@ -41,7 +41,8 @@ else
         <div class="col-md-4">
             @if(showEditForm)
             {
-                <UpdatePerson Id="@idToUpdate" />
+                <UpdatePerson Id="@idToUpdate" OnUpdate="HandleOnUpdate" />
+               
             }
            
         </div>
@@ -58,7 +59,19 @@ else
         idToUpdate = id;
         showEditForm = true;
     }
+    private void HandleOnUpdate(IPersonModel person)
+    {
+        showEditForm = false;
 
+        var p = people.Where(x => x.Id == person.Id).FirstOrDefault();
+
+        if(p != null)
+        {
+            p.FirstName = person.FirstName;
+            p.LastName = person.LastName;
+            p.DateOfBirth = person.DateOfBirth;
+        }
+    }
     protected override async Task OnInitializedAsync()
     {
         people = await personData.ReadPeople();
