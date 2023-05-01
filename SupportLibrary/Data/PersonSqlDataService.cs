@@ -42,6 +42,15 @@ namespace SupportLibrary.Data
             await _dataAccess.SaveData("dbo.spPeople_Delete", new { Id = id }, "SQLDB");
         }
 
+        public async Task<List<IPersonModel>> SearchPeople(string searchTerm)
+        {
+            var people = await _dataAccess.LoadData<PersonModel, dynamic>("dbo.spPeople_Search", new { SearchTerm = searchTerm }, "SQLDB");
+            return people.ToList<IPersonModel>();
+
+        }
+
+
+
 
     }
 }

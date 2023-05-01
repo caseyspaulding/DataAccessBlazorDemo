@@ -1,4 +1,7 @@
-﻿<h3>Search Page</h3>
+﻿@page "/search"
+@inject IPersonDataService personData
+
+<h3>Search Page</h3>
 
 <EditForm Model="@search" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -11,13 +14,52 @@
 <button type="submit" class="btn btn-outline-primary"> Go </button>
 
 </EditForm>
+@if (people == null)
+{
+    <h4> Loading ... </h4>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var person in people)
+                    {
+                        <tr>
+                            <td>@person.Id</td>
+                            <td>@person.FirstName</td>
+                            <td>@person.LastName</td>
+                            <td>@person.DateOfBirth</td>
+                            <td>
+                              
+                            </td>
 
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+     
+    </div>
+}
 @code {
     private SearchModel search = new SearchModel();
+    private List<IPersonModel> people;
+
 
     private async Task HandleValidSubmit()
     {
-        await personData.SearchPerson(search);
+        people = await personData.SearchPeople(search.SearchTerm);  
     }
 
 
